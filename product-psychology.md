@@ -1,5 +1,10 @@
 # Product Psychology & Idea Validation — Deep Reference
 
+> Expands `SKILL.md` §1–§3 (axioms, app shape, audience) and §14 (advisor sequence). `SKILL.md` is
+> the source of truth — if anything here contradicts it, `SKILL.md` wins. Run the §0 intake before
+> giving any of this advice, and tag every recommendation
+> **[Network] / [Utility] / [Universal]**.
+
 ## Table of Contents
 1. Core Human Psychology Exploited
 2. The Reproducible Testing Machine
@@ -144,6 +149,20 @@ Stack the conditional statements:
 **Rule:** Keep it to ~4 conditional layers. More than that = too much risk.
 Each layer is a potential failure point. Test the riskiest assumption first.
 
+### The Fragment Tax
+
+The same idea, stated as a number you can act on: **every additional thing that must be true raises
+your probability of failure by roughly 50%.** A fragment is any conditional layer, any extra setup
+step, any third-party dependency, any moment the user has to leave your app.
+
+Explode's "add the extension to iMessage" step was one fragment, and it was the single biggest
+drop-off in the whole funnel — which is why it got four separate friction-killers stacked on one
+screen (step preview, progress indicator, "Not Now" escape, and PiP guidance with a return button).
+See `SKILL.md` §8.
+
+**Count your fragments before you build. Four is the practical ceiling. If you're over it, cut
+features until you aren't.**
+
 ### The Distribution Channel Filter
 
 Before falling in love with an idea, ask:
@@ -198,6 +217,19 @@ If you don't have distribution, the idea doesn't matter.
 - Network effects are hard to achieve in dispersed adult social graphs
 - Adults are sceptical of new social apps
 - Use cases must be more utilitarian (saving money, finding dates, productivity)
+
+**What to do instead of giving up:** a 22+ audience means you don't have a Network app — you have a
+Utility or a Hybrid. Stop designing invite loops and design a **shareable output artefact** instead.
+That's the Death Clock play: rename for word-of-mouth, then manufacture a personalised artefact
+people want to show someone. CAC to pennies, No. 6 in iOS Health, no social graph required. See
+`SKILL.md` §11 and `launch-strategy.md` §6.
+
+### The ~7 opens rule (all ages)
+
+A new app gets roughly **7 opens** to prove itself before the user quietly stops opening it. Open 1
+is the aha. Opens 2–3 are notification-driven and emotional. Opens 4–5 run on social obligation.
+By 6–7 the habit has formed or it hasn't. **If you can't name what pulls the user back on open 4,
+you have a demo, not a product.**
 
 ---
 

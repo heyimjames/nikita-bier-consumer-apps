@@ -1,5 +1,13 @@
 # Viral Loops & Shareability Mechanics — Deep Reference
 
+> Expands `SKILL.md` §6 (Viral Loop). `SKILL.md` is the source of truth — if anything here
+> contradicts it, `SKILL.md` wins. Run the §0 intake first, and tag every recommendation
+> **[Network] / [Utility] / [Universal]** — a Utility with a 30-year-old audience should ignore most
+> of this file and read the Death Clock artefact play in `SKILL.md` §11 instead.
+
+**Targets:** K > 1 · loop completes in **hours**, not days · first share prompt **≤60 seconds** into
+the first session.
+
 ## Table of Contents
 1. The Anatomy of a Bier Viral Loop
 2. K-Factor Engineering
@@ -77,6 +85,12 @@ To achieve viral growth, K > 1. Every user, on average, must bring in more than 
 
 This is why Bier targets teens first. The K-factor is structurally higher.
 
+**The consequence, stated plainly:** if your audience is 22+, you do not have a Network app. You have
+a Utility that needs an ad budget — expect to buy every user. Reposition to Hybrid (solo value, social
+artefact) or accept paid acquisition. See `SKILL.md` §2 for the shape comparison and §11 for the
+Death Clock play, which is how a single-player utility for older users got its CAC down to pennies
+without a social graph.
+
 ---
 
 ## 3. Share Mechanic Patterns
@@ -98,10 +112,16 @@ friends or pay.
 **How it works:** User progresses toward a reward. Final steps require sharing.
 
 **Implementation:**
-- Show clear progress (e.g., "Share with 3 friends to unlock")
+- Show clear progress (e.g., "Share with 3 friends to unlock" → "1 of 3")
+- **Time-box it to the first session.** Explode gates on **3 sends within ~1 hour**. This is
+  deliberate: after session one, the probability a user ever invites anyone collapses
 - Make the reward genuinely valuable (premium access, exclusive content)
-- Auto-transition the reward into a paid conversion (Explode: free month → annual trial)
-- Use Live Activities or widgets to create urgency around the deadline
+- Auto-transition the reward into a paid conversion (Explode: **free month → annual subscription
+  trial**, automatically, with clear cancellation)
+- Use a Live Activity countdown to carry urgency outside the app — **behind a server-side flag**,
+  because promotional Live Activities are a grey area
+- **Honour the expiry.** Explode's offer really does disappear after the hour. A timer that resets
+  trains users to ignore every timer you ever show them
 
 **Best for:** Any app with a freemium model
 
@@ -178,9 +198,17 @@ will be terrible. The invite must carry context, intrigue, and ideally a preview
 
 ### Explode (2025) — iMessage disappearing photos
 - **Core loop:** Send ephemeral photos/texts via iMessage
-- **Viral mechanic:** Only the sender needs the app. Recipients view without download.
-  Share 3 photos → unlock premium month → auto-converts to annual subscription.
-- **Platform exploitation:** Live Activities for urgency, PiP for onboarding, "Tap Get Inc."
-  developer account name for ASO
-- **Key insight:** Asymmetric install requirement. The sender's content acts as marketing
-  to every recipient, who then wants to send their own.
+- **Viral mechanic:** Only the sender needs the app; recipients view via App Clip with no install and
+  screenshots blocked. **3 sends within ~1 hour → 1 month premium free → auto-converts to an annual
+  subscription trial.**
+- **Platform exploitation:** Live Activity countdown for urgency (fires on backgrounding, and the
+  offer genuinely expires), PiP to survive the iMessage-extension setup step, App Clips for recipient
+  value, "Tap Get Inc." developer account name for ASO
+- **Pricing:** Explode+ at ~$39.99/year or $7.99/month — screenshot alerts, screenshot blocking,
+  replays, post-send photo locking
+- **Key insight:** Asymmetric install. The sender's content acts as marketing to every recipient, who
+  then wants to send their own.
+- **But it failed, and the reason matters:** ~20K downloads, a one-day spike then a sharp dip. Bier
+  posted a post-mortem agreeing the "Snapchat replacement" positioning was the problem — defining
+  yourself against an incumbent caps you at that incumbent's dissatisfied users. **Steal the funnel
+  (`SKILL.md` §8), not the positioning.**

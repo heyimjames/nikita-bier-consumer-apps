@@ -1,11 +1,19 @@
 # Onboarding & First-Session UX — Deep Reference
 
+> Expands `SKILL.md` §4 (Onboarding & Activation) and §5 (Permissions). `SKILL.md` is the source of
+> truth — if anything here contradicts it, `SKILL.md` wins. Run the §0 intake before giving any of
+> this advice, and tag every recommendation **[Network] / [Utility] / [Universal]**.
+
+**The three numbers this file serves:** aha ≤3 seconds · first share prompt ≤60 seconds ·
+activation ≥40% (install → first meaningful action).
+
 ## Table of Contents
 1. The Inverted Time to Value
 2. Permission Flow Design
 3. Screen-by-Screen Onboarding Architecture
-4. The Onboarding-to-Viral Bridge
-5. Common Onboarding Killers
+4. The Explode Onboarding Funnel (worked example)
+5. The Onboarding-to-Viral Bridge
+6. Common Onboarding Killers
 
 ---
 
@@ -35,20 +43,26 @@ improvement compounds through your viral loop.
 
 ## 2. Permission Flow Design
 
-### The Permission Stack (in order of friction)
+### The Permission Stack — ask in this order, never reorder
 
-1. **Notifications** — Ask early, frame as "get alerts when friends interact with you."
-   Use a pre-permission screen with a clear value prop BEFORE the iOS system dialog.
-2. **Contacts** — Frame as "find friends already here." Show the number of friends found
-   IMMEDIATELY after granting. iOS 18+: expect ~65% approval. Plan alternatives.
-3. **Camera** — Frame as core to the experience. If denied, the app should still be usable
-   (or clearly explain why it's essential). Use Apple-style UI to build trust.
-4. **Location** — Only ask if genuinely needed. Never ask on first launch without context.
+| Order | Permission | When | Frame | Expected | If denied |
+|---|---|---|---|---|---|
+| 1 | **Notifications** | Immediately, pre-aha | "Get notified when a friend ___" | High with soft-ask | Continue; re-ask after first social event |
+| 2 | **Contacts** | After first value, never before | "Find your friends already here" — show a count first | ~65% on iOS 18+ (higher teen, lower adult) | Community code / QR / deep link |
+| 3 | **Camera** | At the moment of first use | Core to the experience; preview the UI | High if contextual | Explain necessity, path to Settings |
+| 4 | **Location** | **Last, and only if genuinely required** | A specific benefit, never "improve your experience" | Low | Ship without it |
+
+Location on first launch is the single fastest way to get deleted. Camera is asked at the moment of
+use, not upfront — Explode puts its camera soft-ask in onboarding only because the camera *is* the
+home screen.
 
 ### Permission Flow Best Practices
 
-- **Pre-permission screens:** Always show a custom screen explaining WHY before triggering
-  the system dialog. This increases approval rates by 20-30%.
+- **Pre-permission screens (the soft-ask):** Always show a custom screen explaining WHY before
+  triggering the system dialog. This is worth **+20–30% approval** across the flow. A "Not Now" on
+  YOUR screen costs nothing — the system prompt is unspent and you can ask again. A "Don't Allow" on
+  the SYSTEM screen is permanent and only reversible in Settings. Users who clear your soft-ask have
+  already committed mentally: **system approval often runs 80%+**.
 - **"Why do you need this?" links:** Provide a clear, honest explanation. Users who
   understand the reason approve more often.
 - **Animated guidance:** Use "Tap Here" chevrons and highlight animations to direct
@@ -70,6 +84,9 @@ The new contact permission flow is significantly more restrictive. Mitigation st
 ---
 
 ## 3. Screen-by-Screen Onboarding Architecture
+
+**Hard ceiling: ~6 screens.** If you have more than six, delete until you don't. Every form field
+beyond phone + first name + last name costs **5–10% of completion**.
 
 ### The Bier Onboarding Sequence (generalised)
 
@@ -122,7 +139,35 @@ extensions), use:
 
 ---
 
-## 4. The Onboarding-to-Viral Bridge
+## 4. The Explode Onboarding Funnel (worked example)
+
+The most complete public Bier funnel. Full teardown including product chrome, the steal checklist,
+and the do-not-cargo-cult list lives in `SKILL.md` §8 — this is the onboarding-specific slice.
+
+| # | Step | What Explode does | Copy this? |
+|---|---|---|---|
+| 1 | Notification permission | A **faux notification prompt** styled like the real thing, then the real system Allow | The soft-ask yes; the *fake* dialog no — it's a dark pattern and the honest soft-ask gets the same lift |
+| 2 | Welcome | Authentic photo of two real friends (the actual ICP) + one line of copy | Yes. Real ICP photo, one sentence, one CTA. Never stock illustration |
+| 3 | Camera soft-ask | Pre-permission screen before the system camera dialog | Yes — soft-ask every permission |
+| 4 | Signup | **Phone, first name, last name.** No email, no password, no account creation | Yes. This is your field-count floor |
+| 5 | iMessage setup | Steps **previewed upfront**, **progress indicator**, **"Not Now"** escape, **PiP video guidance** that stays visible inside Messages, **"Return to Explode"** button in the extension | Yes — stack all four whenever a step leaves your app |
+| 6 | Camera home | Lands directly on the camera; core action is **one tap** | Yes. Land on the core action, not a feed |
+| 7 | Share gate | **3 sends within ~1 hour** → 1 month premium free → **auto-transitions to annual trial** | Yes. Time-box to session 1 |
+| 8 | Recipient experience | **App Clip** — real value, no install. Screenshots blocked. Clear install CTA | Yes. Value before the install tax |
+| 9 | On backgrounding | **Live Activity countdown** on lock screen / Dynamic Island: "send 2 more photos" | Yes, but **behind a server-side flag** — promotional Live Activities are a grey area |
+| 10 | Expiry | Wait the hour and the offer is **genuinely gone** | Yes. If you show a timer, honour it |
+
+**Step 5 is the lesson.** The iMessage setup was Explode's single biggest drop-off point — any step
+that forces the user out of your app is a fragment, and fragments raise failure odds by roughly 50%
+each. Explode's response was to stack four separate friction-killers on one screen. Do the same.
+
+**Step 7 is the other lesson.** The share gate is time-boxed to roughly one hour because the first
+session is the only session where users reliably invite anyone. After session one, the probability a
+user ever invites someone collapses.
+
+---
+
+## 5. The Onboarding-to-Viral Bridge
 
 The transition from "new user" to "user who's invited someone" is the most critical
 conversion in your entire funnel. Bier designs onboarding to flow directly into the
@@ -148,7 +193,7 @@ Front-load the viral moment.
 
 ---
 
-## 5. Common Onboarding Killers
+## 6. Common Onboarding Killers
 
 ### The Email Signup
 SMS verification outperforms email for mobile by a wide margin. iOS auto-fills SMS codes;
