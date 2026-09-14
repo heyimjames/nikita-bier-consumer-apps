@@ -1,11 +1,24 @@
 # Launch Strategy & Distribution — Deep Reference
 
+> Expands `SKILL.md` §11 (Launch). `SKILL.md` is the source of truth — if anything here contradicts
+> it, `SKILL.md` wins. Run the §0 intake first and tag every recommendation
+> **[Network] / [Utility] / [Universal]**.
+
+**Shape determines the launch.** The geofenced 40%-in-24-hours playbook in §1 below is **[Network]
+only**. If you're a Utility or Hybrid, skip to §3 (content-first) and §6 (the Death Clock play).
+
+**Fixed numbers:** 40% penetration of one dense community in 24h (pass/fail) · ~3 exposures before
+someone downloads · 50+ short videos/day across accounts, *if* the product demos visually · if you
+can't launch from your couch, don't launch.
+
 ## Table of Contents
-1. The Geofenced Launch Playbook
+1. The Geofenced Launch Playbook — [Network]
 2. Social Channel Tactics
 3. Content-First Distribution
 4. Scaling Beyond the First Community
 5. When to Sell vs. Scale
+6. The Death Clock Play — [Utility] launches without a social graph
+7. Crisis Planning — the Gas Hoax
 
 ---
 
@@ -178,3 +191,46 @@ next dominant social network.
 Both tbh and Gas shut down after acquisition. The experiment-driven culture that birthed
 them didn't survive inside large organisations. If your goal is lasting impact rather than
 a financial exit, the Bier playbook needs adaptation for the retention/community phase.
+
+---
+
+## 6. The Death Clock Play — [Utility] launches without a social graph
+
+Health apps are single-player utilities that resonate most with older audiences: structurally the
+worst possible growth profile, and exactly the case where everything in §1 is useless. Bier advised
+two changes and drove **CAC down to pennies**.
+
+**1. Rename for word-of-mouth.** "Most Days" → **"Death Clock."** The name itself became the hook. It
+drove word-of-mouth *and* got picked up by mainstream national press (including a mention on *The
+Late Show with Stephen Colbert*) — coverage a sleepy name would never have earned.
+
+**2. Manufacture a shareable artefact.** They added a survey that predicted your death date, plus a
+projection of what you'd look like as you age. This did two jobs at once: it made an abstract value
+proposition (habits affect longevity) **viscerally tangible**, and it generated **personalised
+content users wanted to show other people**.
+
+**Result:** No. 6 in the iOS Health charts.
+
+**The generalisable lesson for [Utility] apps:** you don't need a social graph. You need (a) a name
+people repeat, and (b) an output artefact worth showing someone. If your utility produces no
+artefact, invent one — that's a product decision, not a marketing one.
+
+---
+
+## 7. Crisis Planning — the Gas Hoax
+
+At peak growth, a viral misinformation campaign claimed Gas was involved in human trafficking.
+**3% of users deleted their accounts every single day.**
+
+The counter-offensive had three parts:
+
+1. Secure press headlines explicitly debunking the claim
+2. Call police chiefs directly to get official statements
+3. **Embed a debunking video inside the account-deletion screen** — intercepting churn at the exact
+   moment of decision, not in a blog post nobody reads
+
+**Deletions fell to 0.1%/day.**
+
+**[Universal]** If you build for teens, assume a negative narrative is coming. Two rules: your
+rebuttal has to be more viral than the accusation, and it has to be placed at the point of churn.
+Write the crisis plan before you need it.

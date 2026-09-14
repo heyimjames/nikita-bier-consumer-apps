@@ -1,14 +1,41 @@
 # iOS Platform Hacks & App Store Optimisation — Deep Reference
 
+> Expands `SKILL.md` §7 (iOS Surfaces) and §8 (Explode Teardown). `SKILL.md` is the source of truth —
+> if anything here contradicts it, `SKILL.md` wins. Run the §0 intake first and tag every
+> recommendation **[Network] / [Utility] / [Universal]**.
+
 ## Table of Contents
-1. Underused iOS APIs for Growth
-2. App Store Page Optimisation
-3. Permission Flow Hacks
-4. Platform Risk Management
+1. Surface Selection: Use-When and Risk
+2. Underused iOS APIs for Growth
+3. The Explode Stack (worked example)
+4. App Store Page Optimisation
+5. Permission Flow Hacks
+6. Platform Risk Management
 
 ---
 
-## 1. Underused iOS APIs for Growth
+## 1. Surface Selection: Use-When and Risk
+
+Don't adopt a surface because it's clever. Adopt it because your loop needs it. This table is the
+short version of `SKILL.md` §7.
+
+| Surface | Use it when | Concrete play | Risk | Mitigation |
+|---|---|---|---|---|
+| **iMessage extension** | Core action is send-to-a-specific-friend | Asymmetric install: only the sender needs the app | Setup is a fragment — real drop-off | Preview + progress + "Not Now" + PiP & return button |
+| **App Clips** | Recipient needs value before installing | Recipient hits the **aha in <10s**, no install | Limited discovery | Pair with iMessage/link distribution |
+| **Live Activities** | You have a genuinely time-boxed offer | Countdown on lock screen / Dynamic Island | **Grey area** — promotional use isn't the intended purpose | **Server-side feature flag** + push/in-app fallback |
+| **Picture-in-Picture** | A step forces the user out of your app | Guidance video stays visible in Settings/Messages | Minor | Pair with return-detection |
+| **Widgets / Lock Screen** | You need ambient daily presence | Streaks, progress, teasers; deep-link on tap | Low | — |
+| **Contacts** | [Network] You need an instant social graph | Show friend count *before* asking | ~65% approval iOS 18+, declining | Community codes, QR, deep links |
+| **SharePlay** | Co-use is the value | Multiplayer inside FaceTime | Low adoption | Don't build a business on it |
+| **Siri Shortcuts / Spotlight** | Habit formation is the retention play | Voice/Spotlight triggers | Low | — |
+
+**Rule:** if a surface is grey-area (Live Activities for promotion, aggressive ASO naming), it must
+be **toggleable server-side** so compliance is a config change, not an App Store review cycle.
+
+---
+
+## 2. Underused iOS APIs for Growth
 
 ### Live Activities (iOS 16.1+)
 
@@ -87,7 +114,39 @@ sent is an organic advertisement for the app.
 
 ---
 
-## 2. App Store Page Optimisation
+## 3. The Explode Stack (worked example)
+
+Explode (Jan 2025) used four surfaces in one funnel. It did **not** win — ~20K downloads, a one-day
+spike then a sharp dip — because its "Snapchat replacement" positioning capped the market. **Steal
+the stack, not the positioning.** Full funnel, steal checklist, and do-not-cargo-cult list:
+`SKILL.md` §8.
+
+| Surface | How Explode used it |
+|---|---|
+| **iMessage extension** | The product itself. Only the sender needs the app — every message sent is a free ad. Setup was previewed upfront with progress, a "Not Now", PiP guidance, and a "Return to Explode" button |
+| **PiP** | A guidance video stayed visible while the user was inside Messages adding the extension — killing the "left the app and forgot" dropout on the funnel's worst step |
+| **App Clips** | Recipients viewed disappearing photos with **no install**, screenshots blocked, then a clear CTA to get the app |
+| **Live Activities** | On backgrounding, a countdown appeared: "send 2 more photos" to unlock the free month. The offer **genuinely expired** after ~1 hour |
+
+**Product chrome worth copying:** camera-first home with near-zero navigation; native iOS toggles and
+controls throughout (familiarity buys trust exactly where it converts — permissions and payment);
+signup limited to phone + first + last.
+
+**Pricing:** Explode+ at **~$39.99/year or $7.99/month**, unlocking screenshot alerts, screenshot
+blocking, replaying sent photos, and locking photo viewing after send — all features that only become
+meaningful *after* you've sent something. The paywall sells depth on an action already taken, never
+access to the action itself.
+
+**ASO:** the developer account was named **"Tap Get Inc."**, so the App Store renders "Tap Get" beside
+the download button.
+
+**Do not cargo-cult:** the Live Activity promo is a grey area (flag it server-side); the "spite app"
+narrative backfired and capped the market; skip the iMessage extension entirely if your core action
+isn't send-to-a-specific-friend, because the setup step is a genuine fragment.
+
+---
+
+## 4. App Store Page Optimisation
 
 ### The Zero Ratings Problem
 
@@ -138,7 +197,7 @@ that increases tap-through rate.
 
 ---
 
-## 3. Permission Flow Hacks
+## 5. Permission Flow Hacks
 
 ### The Pre-Permission Pattern
 
@@ -184,7 +243,7 @@ Post-iOS 18, contact access is harder to get. Optimise the ask:
 
 ---
 
-## 4. Platform Risk Management
+## 6. Platform Risk Management
 
 ### The SnapKit Lesson
 

@@ -1,5 +1,13 @@
 # Monetisation & Retention — Deep Reference
 
+> Expands `SKILL.md` §9 (Monetisation) and §10 (Retention). `SKILL.md` is the source of truth — if
+> anything here contradicts it, `SKILL.md` wins. Run the §0 intake first and tag every recommendation
+> **[Network] / [Utility] / [Universal]**.
+
+**The one rule that matters most:** never show a paywall during onboarding, before the aha, or in the
+middle of a core action. Nearly every consumer app that "can't monetise" has it in one of those three
+slots.
+
 ## Table of Contents
 1. The God Mode Monetisation Pattern
 2. Subscription Design for Consumer Apps
@@ -16,10 +24,11 @@
 The core app is free and fully functional. The premium tier satisfies a curiosity or desire
 that the free experience deliberately creates.
 
-**Gas Implementation:**
+**Gas Implementation** — **[Network]**
 - Free: Receive anonymous compliments via polls. Know someone said something nice about you.
-- God Mode ($6.99/week): Get HINTS about who sent each compliment
-- Result: ~$7 million revenue in 3 months
+- God Mode (**$6.99–7/week**): Get HINTS about who sent each compliment
+- Result: **~$7 million in 3 months**, and **~$11 million total revenue before the Discord
+  acquisition** — on zero venture funding
 
 **Why this is brilliant:**
 - The free experience creates the desire (curiosity about who sent the compliment)
@@ -38,9 +47,14 @@ Both paths satisfy the same desire. Users self-select based on their preference:
 - Convenience-seeking users pay → revenue
 - Either way, the app wins
 
-**Explode Implementation:**
-- Share 3 photos with friends → unlock 1 month premium free
-- The free month auto-transitions into an annual subscription trial
+**Explode Implementation** — **[Hybrid]**
+- Send photos to **3 people within ~1 hour** → unlock 1 month premium free
+- The free month **auto-transitions into an annual subscription trial**
+- A Live Activity countdown carries the offer outside the app; the offer genuinely expires
+- **Explode+ pricing: ~$39.99/year or $7.99/month** — screenshot alerts, screenshot blocking,
+  replaying sent photos, locking photo viewing after send. Every paid feature is only meaningful
+  *after* you've sent something: the paywall sells depth on an action already taken, never access
+  to the action itself
 - This simultaneously drives viral distribution AND converts to paid
 
 ---
@@ -51,22 +65,27 @@ Both paths satisfy the same desire. Users self-select based on their preference:
 
 - Weekly subscriptions create urgency and low commitment ($6.99/week feels smaller than $27.96/month)
 - Annual subscriptions maximise LTV — convert from weekly after users are habituated
-- Free trials should be gated behind a viral action (shares, invites) not given away
+- Free trials should be gated behind a viral action (shares, invites) not given away. A trial you
+  hand out buys you nothing; a trial unlocked by 3 shares buys you 3 impressions
 - The trial-to-paid conversion should be automatic with clear cancellation options
+- **[Utility]** Older audiences invite less and pay more. Trade K for ARPU deliberately: charge more,
+  charge earlier, stop apologising for it
+- **[Universal]** Validate willingness to pay from day one. If users won't pay **and** won't invite,
+  kill it this week
 
 ### Paywall Timing
 
-**Never show a paywall:**
-- During onboarding
-- Before the user has experienced the core value
-- When the user is in the middle of a core interaction
-- As a modal that interrupts the experience
-
-**Show a paywall:**
-- Immediately after a positive emotional moment ("Someone said you're the best dressed! Want to know who?")
-- When the user naturally hits the boundary of the free experience
-- As part of a completion loop (3 shares = unlock)
-- On a dedicated settings/upgrade screen (passive, always available)
+| Moment | Show? | Why |
+|---|---|---|
+| During onboarding | **Never** | No value context. Kills activation outright |
+| Before the aha | **Never** | You're charging for a promise |
+| Mid-core-action | **Never** | Interrupting the thing they came for |
+| As an interrupting modal | **Never** | Reads as a tax, not an upgrade |
+| Immediately after a peak emotional moment | **Yes** | "Someone said you're the best dressed — want a hint who?" |
+| At the natural edge of the free tier | **Yes** | The boundary explains itself |
+| On completing a share/invite gate | **Yes** | Free month → annual trial (Explode) |
+| Passive settings/upgrade screen | **Yes, always available** | Costs nothing, catches intent |
+| Time-boxed offer after first value | **Yes** | Live Activity countdown — but honour the expiry |
 
 ### The Urgency Layer
 
@@ -79,6 +98,18 @@ Use time-limited offers to create conversion pressure:
 ---
 
 ## 3. Retention Mechanics
+
+### The ~7 opens rule
+
+A new app gets roughly **7 opens** to prove itself before the user quietly stops opening it. Every
+one of those opens needs a reason to exist. Map them explicitly:
+
+- **Open 1** — the aha (≤3 seconds)
+- **Opens 2–3** — notification-driven, personal, emotional ("someone said…", "your photo was viewed")
+- **Opens 4–5** — social obligation (someone is waiting on you)
+- **Opens 6–7** — the habit is forming, or it isn't going to
+
+If you can't name what pulls the user back on open 4, you have a demo, not a product.
 
 ### Content Scarcity
 
